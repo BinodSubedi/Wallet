@@ -11,8 +11,12 @@ class Layer{
         float* biases;
         float* inputs;
         float* outputs;
-        m_queue q;
-        Layer(sycl::queue q,int n_inputs, int n_neurons);
+        float* dweights;
+        float* dbiases;
+        flaot* dinputs;
+        sycl::queue m_queue;
+        int m_channels;
+        Layer(sycl::queue q,int n_inputs, int n_neurons, int channels);
 
         void feedForward(float* inputs);
         void backward(float* dvalues);
